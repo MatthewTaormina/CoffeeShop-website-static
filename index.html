@@ -1,3 +1,8 @@
+<!--
+  Coffee Heaven – Landing Page
+  - Structure: Header (logo + nav), Hero (responsive picture + heading), Content (feature + copy), Footer
+  - Notes: Kept markup intact; added comments only for maintainability
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,6 +12,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Site header with brand logo and primary navigation -->
     <header>
       <img src="./img/3x/Logo@3x.png" alt="" class="nav-logo" />
       <nav>
@@ -19,6 +25,7 @@
       </nav>
     </header>
     <main>
+      <!-- Responsive hero image: chooses best size based on viewport -->
       <picture class="cover-image-container">
         <source
           srcset="./img/Cover-image-1400p.jpg"
@@ -30,8 +37,11 @@
         />
         <img src="./img/Cover-image.jpg" alt="" class="cover-image-img" />
       </picture>
+      <!-- Overlaid site title on the hero image -->
       <h1 class="home-page-heading">COFFEE HEAVEN</h1>
+      <!-- Two-column layout: feature card + introduction copy -->
       <div class="home-page-content-layout">
+        <!-- Feature: Canadian identity card with SVG -->
         <figure class="canadian-flag">
           <img src="./img/canadian-flag.svg" alt="Canadian Flag" />
           <figcaption>
@@ -39,6 +49,7 @@
             flag. We're proud to call Toronto home!
           </figcaption>
         </figure>
+        <!-- Main intro copy -->
         <article class="home-page-content">
           <p>
             Welcome to Coffee Heaven, your cozy escape in Toronto, Ontario! Step
@@ -68,6 +79,7 @@
         </article>
       </div>
     </main>
+    <!-- Global footer -->
     <footer>
       <span>&copy 2025 - Coffee Heaven - Matthew Taormina</span>
     </footer>

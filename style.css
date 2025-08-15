@@ -1,198 +1,275 @@
+/*
+  Coffee Heaven – Main Stylesheet
+  ================================
+  
+  A responsive landing page design for a coffee shop website featuring:
+  - CSS custom properties for consistent theming
+  - Mobile-first responsive design with progressive enhancement
+  - Grid-based layout with flexbox components
+  - Backdrop filter effects and hover animations
+  
+  Architecture:
+  1. Design System (Custom Properties & Base Styles)
+  2. Layout Shell (Grid Container & Main Regions)  
+  3. Header & Navigation (Logo + Menu)
+  4. Hero Section (Cover Image + Overlay Title)
+  5. Content Layout (Two-column Feature + Article)
+  6. Responsive Breakpoints (Mobile, Tablet, Desktop)
+*/
+
+/* ========================================
+   1. DESIGN SYSTEM & BASE CONFIGURATION
+   ======================================== */
+
+/* Custom Properties: Design tokens for consistent theming */
 :root {
-  --logo-bg-color:#4A704B;
-  --nav-hover-bg-color:#1EEB16;
-  --body-bg-color: hsl(118, 50%, 90%);
-  --font-color: black;
-  font-size: 11pt;
-  font-family: sans-serif;
-  --screen-height:1000px;
+  /* Brand Colors */
+  --logo-bg-color:#4A704B;          /* Deep forest green for header/footer */
+  --nav-hover-bg-color:#1EEB16;     /* Bright lime green for hover states */
+  --body-bg-color: hsl(118, 50%, 90%); /* Light sage green background */
+  --font-color: black;              /* Primary text color */
+  
+  /* Typography Scale */
+  font-size: 11pt;                  /* Base font size - scales with media queries */
+  font-family: sans-serif;          /* System font stack for performance */
+  
+  /* Layout Constants */
+  --screen-height:1000px;           /* Reference height for mobile calculations */
 }
 
+/* Global Reset: Normalize box model and remove default spacing */
 *{
-  box-sizing: border-box;
+  box-sizing: border-box;            /* Include padding/border in element width */
 }
 
+/* Element-Specific Styles */
 p {
-  color: hsl(255, 85%, 23%);
+  color: hsl(255, 85%, 23%);         /* Deep purple for body text contrast */
 }
 
 body,nav,li,ul {
-  margin: 0px;
-  padding: 0px;
+  margin: 0px;                       /* Remove browser default margins */
+  padding: 0px;                      /* Remove browser default padding */
 }
 
+/* ========================================
+   2. LAYOUT SHELL & GRID STRUCTURE
+   ======================================== */
+
+/* Responsive Images: Ensure images scale properly within containers */
 .cover-image-img {
-  width: 100%;
-  object-fit: cover;
+  width: 100%;                       /* Full width of parent container */
+  object-fit: cover;                 /* Maintain aspect ratio, crop if needed */
 }
 
-main{
-  height: 80vh;
-}
-
+/* Page Grid Container: Three-row layout (header | main | footer) */
 body {
   background-color: var(--body-bg-color);
-  height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 1fr;
+  height: 100vh;                     /* Full viewport height */
+  display: grid;                     /* CSS Grid layout */
+  grid-template-rows: auto 1fr auto; /* Auto header, flexible main, auto footer */
+  grid-template-columns: 1fr;       /* Single column layout */
 }
 
+/* ========================================
+   3. HEADER & NAVIGATION SYSTEM
+   ======================================== */
+
+/* Navigation List: Horizontal flex container for menu items */
 .nav-items{
-  list-style: none;
-  display: flex;
-  flex-direction: row;
+  list-style: none;                  /* Remove bullet points */
+  display: flex;                     /* Flexbox for horizontal layout */
+  flex-direction: row;               /* Items in a row */
 }
 
+/* Header Container: Flexbox layout for logo and navigation */
 header {
-  display: flex;
+  display: flex;                     /* Flexbox layout */
   background-color: var(--logo-bg-color);
-  align-items: center;
-  justify-content: center;
+  align-items: center;               /* Vertical centering */
+  justify-content: center;           /* Horizontal centering */
 }
 
+/* Footer: Simple bottom section with brand information */
 footer {
   background-color: var(--logo-bg-color);
-  padding: 5px 50px;
-  color: white;
+  padding: 5px 50px;                 /* Vertical 5px, horizontal 50px */
+  color: white;                      /* White text on dark background */
 }
 
+/* Navigation Items: Individual menu item styling */
 .nav-items > li {
-  display: flex;
-  align-items: center;
-  justify-items: center;
+  display: flex;                     /* Flex for item centering */
+  align-items: center;               /* Vertical centering */
+  justify-items: center;             /* Horizontal centering */
 }
 
+/* Navigation Hover State: Interactive feedback */
 .nav-items > li:hover {
-  background-color: var(--nav-hover-bg-color);
+  background-color: var(--nav-hover-bg-color); /* Bright green highlight */
 }
 
+/* Navigation Links: Typography and spacing for menu links */
 .nav-items > li a{
-  flex-basis: 1;
-  padding: 0.5em;
-  text-decoration: none;
-  color: var(--font-color);
-  font-size: 2rem;
-  font-weight: bold;
-  color: #e3ac82;
+  flex: 1;                           /* Equal distribution of available space */
+  padding: 0.5em;                    /* Internal spacing around link text */
+  text-decoration: none;             /* Remove underline */
+  font-size: 2rem;                   /* Large, prominent link text */
+  font-weight: bold;                 /* Bold font weight for emphasis */
+  color: #e3ac82;                    /* Warm tan/beige color for links */
 }
 
+/* Navigation Link Hover State: Color change on interaction */
 .nav-items > li:hover a{
-  color: var(--logo-bg-color)
+  color: var(--logo-bg-color);       /* Dark green text on bright background */
 }
 
+/* Brand Logo: Sized and positioned logo image */
 .nav-logo {
-  height: 100px;
-  max-width: 600px;
-  object-fit: cover;
+  height: 100px;                     /* Fixed height for consistent header size */
+  max-width: 600px;                  /* Prevent oversized logos */
+  object-fit: cover;                 /* Maintain aspect ratio */
 }
 
+/* ========================================
+   4. HERO SECTION & COVER IMAGE
+   ======================================== */
+
+/* Hero Title: Overlay heading with backdrop filter effects */
 .home-page-heading {
-  position: relative;
-  text-align: center;
-  padding: 30px 40px; /* slightly less top/bottom padding for balance */
-  margin: 0 auto;
-  width: fit-content; /* allows the box to size to text */
-  top: -75px;
-  background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 50px;
-  backdrop-filter: blur(4px); /* softens background through transparency */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* subtle shadow for depth */
+  position: relative;                /* Positioned relative to normal flow */
+  text-align: center;                /* Center-aligned text */
+  padding: 30px 40px;                /* Balanced padding (less top/bottom) */
+  margin: 0 auto;                    /* Center horizontally */
+  width: fit-content;                /* Size to content width */
+  top: -75px;                        /* Negative margin to overlay on image */
+  background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
+  border-radius: 50px;               /* Rounded pill shape */
+  backdrop-filter: blur(4px);        /* Glass morphism effect */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Soft drop shadow */
 }
 
+/* Hero Title Typography: Styling for the main heading text */
 .home-page-heading h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 0;
-  color: #2d2018; /* deep coffee brown */
+  font-size: 2rem;                   /* Large, prominent heading */
+  font-weight: bold;                 /* Bold weight for impact */
+  margin: 0;                         /* Remove default margins */
+  color: #2d2018;                    /* Deep coffee brown color */
 }
 
+/* ========================================
+   5. CONTENT LAYOUT & COMPONENTS
+   ======================================== */
+
+/* Main Content Container: Two-column responsive layout */
 .home-page-content-layout{
-  position: relative;
-  top: -88px;
-  margin: 0px auto;
-  max-width: 1140px;
-  padding: 10px;
-  font-size: 1.25rem;
+  position: relative;                /* Positioned for negative margin offset */
+  top: -88px;                        /* Pull up to compensate for hero spacing */
+  margin: 0px auto;                  /* Center horizontally */
+  max-width: 1140px;                 /* Constrain maximum width */
+  padding: 10px;                     /* Internal spacing */
+  font-size: 1.25rem;                /* Slightly larger body text */
 }
 
+/* Canadian Flag Feature: Interactive flag component with hover animation */
 .canadian-flag img {
-  height: 208px;
-  display: block;
-  margin: 0 auto;
-  padding: 20px 40px;
-  /* Use a variable for the base size */
-  --base-height: 208px;
-  height: var(--base-height);
+  height: 208px;                     /* Fixed height for consistent layout */
+  display: block;                    /* Block-level for centering */
+  margin: 0 auto;                    /* Center horizontally */
+  padding: 20px 40px;                /* Internal spacing */
   
-  /* Add position: relative to establish a stacking context for z-index */
+  /* CSS Custom Property: Reusable base height value */
+  --base-height: 208px;
+  height: var(--base-height);        /* Use custom property */
+  
+  /* Positioning: Create stacking context for z-index layering */
   position: relative;
   
-  /* Add a transition for smooth animation */
+  /* Animation: Smooth transform transition for hover effect */
   transition: transform 0.3s ease-in-out;
 }
 
+/* Canadian Flag Hover State: Scale animation with layering */
 .canadian-flag img:hover {
-  /* Use transform: scale() to expand the image visually */
-  transform: scale(1.1);
-  /* Use z-index to bring the expanded image to the front */
-  z-index: 10;
+  transform: scale(1.1);             /* 10% size increase on hover */
+  z-index: 10;                       /* Bring to front when expanded */
 }
 
+/* Canadian Flag Caption: Styled text below the flag */
 .canadian-flag figcaption {
-  color: #ff0000;
-  background-color: #ffffff;
-  padding: 10px;
-  border-radius: 20px;
+  color: #ff0000;                    /* Red text (Canadian theme) */
+  background-color: #ffffff;         /* White background for contrast */
+  padding: 10px;                     /* Internal spacing */
+  border-radius: 20px;               /* Rounded corners */
 }
 
+/* Content Layout Flexbox: Two-column arrangement */
 .home-page-content-layout {
-  display: flex;
-  flex-direction: row;
-  align-items: center; /* Centers items vertically */
-  justify-content: center; /* Centers items horizontally */
+  display: flex;                     /* Flexbox layout */
+  flex-direction: row;               /* Horizontal arrangement */
+  align-items: center;               /* Vertical centering */
+  justify-content: center;           /* Horizontal centering */
 }
 
+/* ========================================
+   6. RESPONSIVE DESIGN & MEDIA QUERIES
+   ======================================== */
+
+/* Tablet Breakpoint: Layout adjustments for medium screens */
 @media (max-width:1100px){
+  /* Header: Stack logo and navigation vertically */
   header{
-    flex-direction: column;
-    padding: 0px;
+    flex-direction: column;          /* Vertical stacking */
+    padding: 0px;                    /* Remove horizontal padding */
   }
+  
+  /* Navigation: Full-width navigation bar */
   nav{
-    width: 100%;
+    width: 100%;                     /* Full container width */
   }
+  
+  /* Navigation Items: Vertical menu layout */
   .nav-items{
-    flex-direction: column;
-    width: 100%;
+    flex-direction: column;          /* Stack items vertically */
+    width: 100%;                     /* Full width utilization */
   }
 
+  /* Navigation Links: Full-width centered links */
   .nav-items li a{
-    width:100%;
-    text-align: center;
+    width:100%;                      /* Full width clickable area */
+    text-align: center;              /* Center-aligned text */
   }
+  
+  /* Body: Increased height for mobile content */
   body {
-    height: calc(var(--screen-height) * 1.25);
-    font-size: 11pt;
+    height: calc(var(--screen-height) * 1.25); /* 25% height increase */
+    font-size: 11pt;                 /* Maintain base font size */
   }
+  
+  /* Content Layout: Switch to single-column */
   .home-page-content-layout {
-  flex-direction: column;
-}
+    flex-direction: column;          /* Vertical stacking of content */
+  }
 }
 
+/* Mobile Breakpoint: Further optimizations for small screens */
 @media (max-width:900px)
 {
+  /* Body: Additional height adjustment for mobile */
   body{
-    height: calc(var(--screen-height) * 1.5);
+    height: calc(var(--screen-height) * 1.5); /* 50% height increase */
   }
 
-    :root{
-    font-size: 12pt;
+  /* Typography: Slightly larger base font for mobile readability */
+  :root{
+    font-size: 12pt;                 /* Increased from 11pt */
   }
 }
 
+/* Small Mobile Breakpoint: Maximum height adjustment for very small screens */
 @media (max-width: 580px){
+  /* Body: Maximum height increase for small mobile devices */
   body {
-    height: calc(var(--screen-height) * 1.75);
+    height: calc(var(--screen-height) * 1.75); /* 75% height increase */
   }
-
 }
