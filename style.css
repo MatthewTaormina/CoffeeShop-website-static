@@ -1,6 +1,6 @@
 :root {
-  --logo-bg-color:#e9ca9c;
-  --nav-hover-bg-color:hsl(36, 64%, 90%);
+  --logo-bg-color:#4A704B;
+  --nav-hover-bg-color:#1EEB16;
   --font-color: black;
   font-size: 14pt;
 }
@@ -43,7 +43,7 @@ header {
 
 .nav-logo {
   height: 64px;
-  max-width: 128px;
+  max-width: 600px;
 }
 
 @media (max-width:800px){
@@ -51,7 +51,16 @@ header {
     flex-direction: column;
     padding: 0px;
   }
+  nav{
+    width: 100%;
+  }
   .nav-items{
     flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-items li a{
+    width:100%;
+    text-align: center;
   }
 }
