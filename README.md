@@ -1,10 +1,10 @@
-# Coffee Heaven - Static Website
+# Coffee Heaven - Multi-Page Website
 
-A responsive landing page for Coffee Heaven, a cozy coffee shop located in Toronto, Ontario. This project showcases modern CSS techniques including CSS Grid, Flexbox, custom properties, and advanced visual effects.
+A responsive multi-page website for Coffee Heaven, a cozy coffee shop located in Toronto, Ontario. This project showcases modern CSS techniques including CSS Grid, Flexbox, custom properties, advanced visual effects, and a comprehensive menu system with Canadian-themed branding.
 
 ## 🎯 Project Overview
 
-Coffee Heaven is a single-page static website designed to create an inviting online presence for a local coffee shop. The design emphasizes warmth, community, and the authentic Canadian coffee experience.
+Coffee Heaven is a multi-page website designed to create an inviting online presence for a local coffee shop. The design emphasizes warmth, community, and the authentic Canadian coffee experience, featuring a comprehensive menu page with Canadian-themed offerings and authentic branding.
 
 ## ✨ Features
 
@@ -25,7 +25,8 @@ Coffee Heaven is a single-page static website designed to create an inviting onl
 - **Hero Section**: Full-width cover image with overlay title
 - **Feature Content**: Canadian flag component with hover animation
 - **About Section**: Multi-paragraph introduction to the coffee shop
-- **Footer**: Simple branding and copyright information
+- **Menu Page**: Comprehensive Canadian-themed menu with interactive tables
+- **Footer**: Simple branding and copyright information with Canadian flag
 
 ## 🛠️ Technical Stack
 
@@ -50,6 +51,11 @@ Coffee Heaven is a single-page static website designed to create an inviting onl
 - **Background**: `hsl(118, 50%, 90%)` (Light sage green)
 - **Text**: Deep purple `hsl(255, 85%, 23%)` for body content
 - **Links**: Warm tan `#e3ac82` for navigation
+- **Menu Background**: `hsl(26, 63%, 40%)` (Warm orange-brown for menu cards)
+- **Canadian Flag Red**: `hsl(0, 80%, 50%)` (Authentic flag red for table rows)
+- **Canadian Flag White**: `hsl(0, 0%, 100%)` (Pure white for contrast)
+- **Accent Blue**: `#4010CC` (Deep blue for headings and accents)
+- **Light Blue**: `hsl(240, 60%, 95%)` (Light blue for menu headings)
 
 ### Typography
 - **Base Font**: System sans-serif stack
@@ -61,31 +67,34 @@ Coffee Heaven is a single-page static website designed to create an inviting onl
 
 ```
 CoffeeShop-website-static/
-├── index.html              # Main HTML file
-├── style.css              # Comprehensive stylesheet with detailed comments
-├── README.md              # Project documentation
-├── LICENSE                # Project license
-└── img/                   # Image assets
-    ├── Cover-image*.jpg   # Hero background images (multiple sizes)
-    ├── canadian-flag.svg  # Feature component graphic
-    └── Logo*.*            # Brand logos (multiple formats and sizes)
+├── index.html              # Main landing page
+├── menu.html               # Comprehensive menu page
+├── style.css               # Comprehensive stylesheet with detailed comments
+├── README.md               # Project documentation
+├── LICENSE                 # Project license
+└── img/                    # Image assets
+    ├── Cover-image*.jpg    # Hero background images (multiple sizes)
+    ├── canadian-flag.svg   # Feature component and menu icons
+    └── Logo*.*             # Brand logos (multiple formats and sizes)
 ```
 
 ## 🔧 Development
 
 ### Local Development
 1. Clone the repository
-2. Open `index.html` in a modern web browser
-3. No build process required - static HTML/CSS
+2. Open `index.html` in a modern web browser for the landing page
+3. Open `menu.html` to view the comprehensive menu page
+4. No build process required - static HTML/CSS
 
 ### Code Organization
-The CSS is organized into 6 main sections:
+The CSS is organized into 7 main sections:
 1. **Design System**: Custom properties and base styles
 2. **Layout Shell**: Grid structure and main containers
 3. **Header & Navigation**: Logo and menu components
 4. **Hero Section**: Cover image and overlay title
 5. **Content Layout**: Two-column layout and components
 6. **Responsive Design**: Media queries and breakpoints
+7. **Menu Page Styles**: Grid layout with menu containers and Canadian flag branding
 
 ## 📖 Code Documentation
 
@@ -116,6 +125,25 @@ Navigation items use flexbox for equal distribution:
 ```css
 flex: 1; /* Equal space distribution */
 ```
+
+## 🍁 Menu Page Features
+
+### Canadian-Themed Design
+- **Flag Branding**: Canadian flag icons throughout menu sections
+- **Color Scheme**: Canadian flag colors (red/white) for table rows
+- **Authentic Names**: Menu items inspired by Canadian culture and traditions
+
+### Interactive Menu Tables
+- **Rounded Corners**: Modern table design with 20px border-radius
+- **Alternating Colors**: Red and white rows for Canadian theme
+- **Responsive Layout**: Adapts from two-column to single-column on mobile
+- **Table Wrappers**: CSS wrapper divs enable rounded corners on HTML tables
+
+### Menu Categories
+1. **Canadian Coffee Creations**: Signature drinks like Maple Latte and Double Double
+2. **Sweet Canadian Treats**: Traditional desserts like Nanaimo Bars and Butter Tarts
+3. **Hearty Canadian Breakfasts**: Local favorites like Montreal Bagels and Bannock
+4. **Canadian-Inspired Cold Drinks**: Seasonal beverages with Canadian flavors
 
 ## 📄 License
 
