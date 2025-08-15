@@ -383,7 +383,7 @@ footer {
 /* Main Menu Page Layout: Two-column grid structure */
 .menu-page-main{
   display: grid;                      /* CSS Grid for layout control */
-  grid-template-columns: 1fr 1fr;     /* Equal width columns for balance */
+  grid-template-columns: 1fr 2fr;     /* Equal width columns for balance */
   grid-template-rows: auto 1fr;       /* Auto header + flexible content */
   gap: 20px;                          /* Increased spacing between columns */
   margin: 10px auto;                  /* Center horizontally with top margin */
