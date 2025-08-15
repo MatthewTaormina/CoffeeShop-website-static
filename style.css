@@ -393,17 +393,17 @@ footer {
 
   .menu-page-main{
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto 1fr;
+    grid-template-rows: auto 1fr auto;
   }
 
   .menu-page-main-article{
     grid-column: 1 / 2;
-    grid-row: 2 / 3;
+    grid-row: 3 / 4;
   }
 
   .menu-page-main .menu-container{
     grid-column: 1 / 2;
-    grid-row: 3 / 4;
+    grid-row: 2 / 3;
   }
 }
 
@@ -411,4 +411,12 @@ footer {
   :root{
     font-size: 10pt;
   }
+
+  .menu-page-main{
+    font-size: 0.8rem;
+  }
+}
+
+.canadian-flag-unicode{
+  font-family: 'Segoe UI Emoji', 'Segoe UI Symbol', 'Segoe UI', 'Apple Color Emoji', 'Twemoji Mozilla', 'Noto Color Emoji', 'Android Emoji';
 }
