@@ -207,9 +207,10 @@ footer {
 /* Canadian Flag Caption: Styled text below the flag */
 .canadian-flag figcaption {
   color: var(--canadian-flag-red);                   /* Red text (Canadian theme) */
-  background-color: var(--canadian-flag-white);         /* White background for contrast */
-  padding: 10px;                     /* Internal spacing */
+  background-color: var(--canadian-flag-white);      /* White background for contrast */
+  padding: 12px 16px;                /* More even spacing - less vertical, balanced horizontal */
   border-radius: 20px;               /* Rounded corners */
+  font-weight: 500;                  /* Medium weight for better readability */
 }
 
 /* Content Layout Flexbox: Two-column arrangement */
@@ -491,11 +492,424 @@ footer {
    CANADIAN FLAG ICON STYLES
    ======================================== */
 
-/* Canadian flag icon styling for menu headers */
+/* Canadian flag icon styling for menu headers and all card headers */
 .canadian-flag-icon{
   width: 24px;                       /* Standard flag width */
   height: 16px;                      /* Standard flag height (3:2 ratio) */
   vertical-align: middle;            /* Align with text baseline */
   margin-right: 12px;                /* Right spacing between flag and text */
   display: inline-block;             /* Inline block for proper spacing */
+}
+
+/* Specific styling for flag icons in headings */
+h2 .canadian-flag-icon,
+h3 .canadian-flag-icon {
+  width: 20px;                       /* Slightly smaller for headings */
+  height: 13px;                      /* Maintain 3:2 ratio */
+  margin-right: 10px;                /* Consistent spacing */
+}
+
+/* Flag icons in value items and feature items */
+.value-item h3 .canadian-flag-icon,
+.feature-item h3 .canadian-flag-icon {
+  width: 18px;                       /* Even smaller for sub-headings */
+  height: 12px;                      /* Maintain 3:2 ratio */
+  margin-right: 8px;                 /* Tighter spacing for smaller text */
+}
+
+/* Flag icon in figcaption */
+.canadian-flag figcaption .canadian-flag-icon {
+  width: 16px;                       /* Small size for caption text */
+  height: 11px;                      /* Maintain 3:2 ratio */
+  margin-right: 6px;                 /* Minimal spacing */
+}
+
+/* ========================================
+   NAVIGATION ENHANCEMENTS
+   ======================================== */
+
+/* Active Navigation State: Highlight current page */
+.nav-active {
+  background-color: var(--nav-hover-bg-color) !important; /* Force active state */
+  color: var(--logo-bg-color) !important;                 /* Dark text on bright background */
+  border-radius: 8px;                                     /* Rounded active indicator */
+}
+
+/* Focus States: Keyboard navigation accessibility */
+.nav-items a:focus {
+  outline: 3px solid var(--nav-hover-bg-color);          /* Visible focus indicator */
+  outline-offset: 2px;                                    /* Space around focus ring */
+}
+
+/* ========================================
+   CALL-TO-ACTION BUTTONS
+   ======================================== */
+
+/* CTA Button Container: Flexbox layout for action buttons */
+.home-cta-buttons,
+.cta-buttons {
+  display: flex;                     /* Flexbox layout */
+  gap: 15px;                         /* Space between buttons */
+  margin-top: 30px;                  /* Top spacing */
+  justify-content: center;           /* Center alignment */
+  flex-wrap: wrap;                   /* Allow wrapping on small screens */
+}
+
+/* Primary CTA Button: Main action styling */
+.cta-button.primary {
+  background-color: var(--accent-dark-blue);  /* Deep blue background */
+  color: white;                                /* White text */
+  padding: 15px 30px;                          /* Generous padding */
+  border-radius: 25px;                         /* Rounded pill shape */
+  text-decoration: none;                       /* Remove underline */
+  font-weight: bold;                           /* Bold text */
+  font-size: 1.1rem;                           /* Slightly larger text */
+  transition: all 0.3s ease;                   /* Smooth transitions */
+  box-shadow: 0 4px 15px rgba(64, 16, 204, 0.3); /* Button shadow */
+}
+
+/* Primary Button Hover State: Interactive feedback */
+.cta-button.primary:hover {
+  background-color: hsl(255, 85%, 35%);        /* Darker blue on hover */
+  transform: translateY(-2px);                 /* Slight lift effect */
+  box-shadow: 0 6px 20px rgba(64, 16, 204, 0.4); /* Enhanced shadow */
+}
+
+/* Secondary CTA Button: Alternative action styling */
+.cta-button.secondary {
+  background-color: transparent;               /* Transparent background */
+  color: var(--accent-dark-blue);              /* Blue text */
+  padding: 15px 30px;                          /* Consistent padding */
+  border: 2px solid var(--accent-dark-blue);   /* Blue border */
+  border-radius: 25px;                         /* Rounded pill shape */
+  text-decoration: none;                       /* Remove underline */
+  font-weight: bold;                           /* Bold text */
+  font-size: 1.1rem;                           /* Consistent size */
+  transition: all 0.3s ease;                   /* Smooth transitions */
+}
+
+/* Secondary Button Hover State: Color inversion */
+.cta-button.secondary:hover {
+  background-color: var(--accent-dark-blue);   /* Fill with blue */
+  color: white;                                /* White text */
+  transform: translateY(-2px);                 /* Slight lift effect */
+}
+
+/* ========================================
+   ABOUT PAGE STYLES
+   ======================================== */
+
+/* About Page Main Container: Grid layout for content organization */
+.about-page-main {
+  max-width: 1200px;                 /* Constrain maximum width */
+  margin: 20px auto;                 /* Center horizontally */
+  padding: 0 20px;                   /* Horizontal padding */
+}
+
+/* About Page Title: Main heading styling */
+.about-page-main h1 {
+  text-align: center;                /* Center alignment */
+  font-size: 3.5rem;                 /* Large, prominent heading */
+  color: #2d2018;                    /* Warm coffee brown */
+  margin-bottom: 40px;               /* Bottom spacing */
+}
+
+/* About Hero Section: Main content area */
+.about-hero {
+  display: grid;                     /* CSS Grid layout */
+  grid-template-columns: 1fr 1fr;    /* Two equal columns */
+  gap: 40px;                         /* Space between columns */
+  margin-bottom: 50px;               /* Bottom spacing */
+}
+
+/* About Articles: Content card styling */
+.about-story,
+.about-values {
+  background-color: var(--menu-bg-color); /* Warm brown background */
+  color: var(--canadian-flag-white);      /* White text */
+  padding: 30px;                          /* Internal spacing */
+  border-radius: 15px;                    /* Rounded corners */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Drop shadow */
+}
+
+/* About Story and Values Text: Force white text for better contrast */
+.about-story p,
+.about-values p,
+.about-story *,
+.about-values *,
+.about-team p {
+  color: var(--canadian-flag-white) !important; /* Force white text */
+}
+
+/* Values Grid Text: Ensure all value text is white */
+.value-item p,
+.value-item h3,
+.value-item * {
+  color: var(--canadian-flag-white) !important; /* Force white text */
+}
+
+/* About Team Text: Ensure team section text is white */
+.about-team p,
+.about-team * {
+  color: var(--canadian-flag-white) !important; /* Force white text */
+}
+
+/* About Section Headings: Consistent heading style */
+.about-story h2,
+.about-values h2,
+.about-team h2 {
+  color: var(--accent-light-blue);    /* Light blue headings */
+  font-size: 2rem;                    /* Large heading size */
+  margin-bottom: 20px;                /* Bottom spacing */
+  text-align: center;                 /* Center alignment */
+}
+
+/* Values Grid: Four-column layout for values */
+.values-grid {
+  display: grid;                      /* CSS Grid layout */
+  grid-template-columns: 1fr 1fr;     /* Two columns */
+  gap: 20px;                          /* Space between items */
+  margin-top: 20px;                   /* Top spacing */
+}
+
+/* Individual Value Item: Card styling */
+.value-item {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  padding: 20px;                               /* Internal spacing */
+  border-radius: 10px;                         /* Rounded corners */
+  text-align: center;                          /* Center alignment */
+}
+
+/* Value Item Headings: Emoji and text styling */
+.value-item h3 {
+  color: var(--canadian-flag-white);   /* White text */
+  font-size: 1.3rem;                   /* Medium heading size */
+  margin-bottom: 10px;                 /* Bottom spacing */
+}
+
+/* About Team Section: Full-width section */
+.about-team {
+  background-color: var(--menu-bg-color); /* Consistent brown background */
+  color: var(--canadian-flag-white);      /* White text */
+  padding: 30px;                          /* Internal spacing */
+  border-radius: 15px;                    /* Rounded corners */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Drop shadow */
+  text-align: center;                     /* Center alignment */
+}
+
+/* ========================================
+   VISIT US PAGE STYLES
+   ======================================== */
+
+/* Visit Page Main Container: Content organization */
+.visit-page-main {
+  max-width: 1200px;                 /* Constrain width */
+  margin: 20px auto;                 /* Center horizontally */
+  padding: 0 20px;                   /* Horizontal padding */
+}
+
+/* Visit Page Title: Main heading */
+.visit-page-main h1 {
+  text-align: center;                /* Center alignment */
+  font-size: 3.5rem;                 /* Large heading */
+  color: #2d2018;                    /* Coffee brown */
+  margin-bottom: 40px;               /* Bottom spacing */
+}
+
+/* Visit Info Grid: Two-column layout for main content */
+.visit-info-grid {
+  display: grid;                     /* CSS Grid layout */
+  grid-template-columns: 1fr 1fr;    /* Equal columns */
+  gap: 40px;                         /* Space between columns */
+  margin-bottom: 50px;               /* Bottom spacing */
+}
+
+/* Location and Contact Cards: Consistent card styling */
+.location-info,
+.hours-contact {
+  background-color: var(--menu-bg-color); /* Brown background */
+  color: var(--canadian-flag-white);      /* White text */
+  padding: 30px;                          /* Internal spacing */
+  border-radius: 15px;                    /* Rounded corners */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Drop shadow */
+}
+
+/* Hours Grid: Organized hours display */
+.hours-grid {
+  display: grid;                     /* Grid layout */
+  gap: 10px;                         /* Space between items */
+  margin: 20px 0;                    /* Vertical spacing */
+}
+
+/* Individual Hours Item: Day and time display */
+.hours-item {
+  display: flex;                     /* Flexbox layout */
+  justify-content: space-between;    /* Space between day and time */
+  padding: 10px 0;                   /* Vertical padding */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle divider */
+}
+
+/* Special Hours: Different styling for holidays */
+.special-hours {
+  font-style: italic;                /* Italic text */
+  color: var(--accent-light-blue);   /* Light blue color */
+}
+
+/* Contact Info: Contact details styling */
+.contact-info p {
+  margin: 10px 0;                    /* Vertical spacing */
+}
+
+/* Contact Links: Phone and email styling */
+.contact-info a {
+  color: var(--accent-light-blue);   /* Light blue links */
+  text-decoration: none;             /* Remove underline */
+}
+
+.contact-info a:hover {
+  text-decoration: underline;        /* Underline on hover */
+}
+
+/* Social Links: Social media buttons */
+.social-links {
+  display: flex;                     /* Flexbox layout */
+  gap: 15px;                         /* Space between links */
+  margin-top: 15px;                  /* Top spacing */
+}
+
+.social-link {
+  color: var(--accent-light-blue);   /* Light blue text */
+  text-decoration: none;             /* Remove underline */
+  padding: 8px 15px;                 /* Button-like padding */
+  border: 1px solid var(--accent-light-blue); /* Border */
+  border-radius: 20px;               /* Rounded corners */
+  transition: all 0.3s ease;         /* Smooth transitions */
+}
+
+.social-link:hover {
+  background-color: var(--accent-light-blue); /* Fill background */
+  color: var(--menu-bg-color);               /* Dark text */
+}
+
+/* Visit Features Section: Feature highlights */
+.visit-features {
+  background-color: var(--body-bg-color); /* Light background */
+  padding: 40px;                          /* Internal spacing */
+  border-radius: 15px;                    /* Rounded corners */
+  margin-bottom: 40px;                    /* Bottom spacing */
+}
+
+.visit-features h2 {
+  text-align: center;                /* Center alignment */
+  color: #2d2018;                    /* Coffee brown */
+  font-size: 2.5rem;                 /* Large heading */
+  margin-bottom: 30px;               /* Bottom spacing */
+}
+
+/* Features Grid: Four-column feature layout */
+.features-grid {
+  display: grid;                     /* Grid layout */
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 30px;                              /* Space between items */
+}
+
+/* Individual Feature Item: Feature card styling */
+.feature-item {
+  background-color: white;           /* White background */
+  padding: 25px;                     /* Internal spacing */
+  border-radius: 10px;               /* Rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center;                /* Center alignment */
+}
+
+.feature-item h3 {
+  color: var(--accent-dark-blue);    /* Blue headings */
+  font-size: 1.5rem;                 /* Medium heading size */
+  margin-bottom: 15px;               /* Bottom spacing */
+}
+
+.feature-item p {
+  color: hsl(255, 85%, 23%);         /* Purple text */
+  line-height: 1.6;                  /* Good line spacing */
+}
+
+/* Visit CTA Section: Final call-to-action */
+.visit-cta {
+  background-color: var(--menu-bg-color); /* Brown background */
+  color: var(--canadian-flag-white);      /* White text */
+  padding: 40px;                          /* Internal spacing */
+  border-radius: 15px;                    /* Rounded corners */
+  text-align: center;                     /* Center alignment */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Drop shadow */
+}
+
+/* Visit CTA Text: Force white text for better contrast */
+.visit-cta p,
+.visit-cta * {
+  color: var(--canadian-flag-white) !important; /* Force white text */
+}
+
+.visit-cta h2 {
+  color: var(--accent-light-blue);   /* Light blue heading */
+  font-size: 2.5rem;                 /* Large heading */
+  margin-bottom: 20px;               /* Bottom spacing */
+}
+
+/* ========================================
+   ENHANCED RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablet Breakpoint: Responsive adjustments for new pages */
+@media (max-width: 1100px) {
+  /* About Page: Stack content vertically */
+  .about-hero {
+    grid-template-columns: 1fr;      /* Single column */
+    gap: 30px;                       /* Reduced gap */
+  }
+  
+  /* Visit Page: Stack content vertically */
+  .visit-info-grid {
+    grid-template-columns: 1fr;      /* Single column */
+    gap: 30px;                       /* Reduced gap */
+  }
+  
+  /* Values and Features: Reduce to single column */
+  .values-grid,
+  .features-grid {
+    grid-template-columns: 1fr;      /* Single column */
+  }
+  
+  /* CTA Buttons: Stack vertically on tablet */
+  .home-cta-buttons,
+  .cta-buttons {
+    flex-direction: column;          /* Vertical stacking */
+    align-items: center;             /* Center alignment */
+  }
+}
+
+/* Mobile Breakpoint: Further mobile optimizations */
+@media (max-width: 600px) {
+  /* Page Titles: Smaller on mobile */
+  .about-page-main h1,
+  .visit-page-main h1 {
+    font-size: 2.5rem;              /* Smaller heading */
+  }
+  
+  /* Content Cards: Reduced padding on mobile */
+  .about-story,
+  .about-values,
+  .location-info,
+  .hours-contact,
+  .visit-features,
+  .visit-cta {
+    padding: 20px;                   /* Reduced padding */
+  }
+  
+  /* CTA Buttons: Full width on mobile */
+  .cta-button.primary,
+  .cta-button.secondary {
+    width: 100%;                     /* Full width */
+    text-align: center;              /* Center text */
+    max-width: 300px;                /* Maximum width */
+  }
 }
