@@ -2,11 +2,12 @@
   Coffee Heaven – Main Stylesheet
   ================================
   
-  A responsive landing page design for a coffee shop website featuring:
+  A responsive multi-page coffee shop website featuring:
   - CSS custom properties for consistent theming
   - Mobile-first responsive design with progressive enhancement
   - Grid-based layout with flexbox components
   - Backdrop filter effects and hover animations
+  - Comprehensive menu page with Canadian-themed offerings
   
   Architecture:
   1. Design System (Custom Properties & Base Styles)
@@ -15,6 +16,7 @@
   4. Hero Section (Cover Image + Overlay Title)
   5. Content Layout (Two-column Feature + Article)
   6. Responsive Breakpoints (Mobile, Tablet, Desktop)
+  7. Menu Page Styles (Grid layout with menu containers)
 */
 
 /* ========================================
@@ -28,8 +30,12 @@
   --nav-hover-bg-color:#1EEB16;     /* Bright lime green for hover states */
   --body-bg-color: hsl(118, 50%, 90%); /* Light sage green background */
   --font-color: black;              /* Primary text color */
-  --logo-text-color: #e3ac82;
-  --accent-dark-blue: #4010CC;
+  --logo-text-color: #e3ac82;        /* Warm tan/beige for logo text */
+  --accent-dark-blue: #4010CC;       /* Deep blue for headings and accents */
+  --accent-light-blue: hsl(240, 60%, 95%); /* Light blue for menu headings */
+  --menu-bg-color: hsl(26, 63%, 40%); /* Warm orange-brown for menu cards */
+  --canadian-flag-red: hsl(0, 80%, 50%); /* Canadian flag red for table rows */
+  --canadian-flag-white: hsl(0, 0%, 100%); /* Pure white for contrast */
   
   /* Typography Scale */
   font-size: 11pt;                  /* Base font size - scales with media queries */
@@ -199,8 +205,8 @@ footer {
 
 /* Canadian Flag Caption: Styled text below the flag */
 .canadian-flag figcaption {
-  color: #ff0000;                    /* Red text (Canadian theme) */
-  background-color: #ffffff;         /* White background for contrast */
+  color: var(--canadian-flag-red);                   /* Red text (Canadian theme) */
+  background-color: var(--canadian-flag-white);         /* White background for contrast */
   padding: 10px;                     /* Internal spacing */
   border-radius: 20px;               /* Rounded corners */
 }
@@ -278,150 +284,190 @@ footer {
 
 /* ========================================
    7. MENU PAGE STYLES
-   ======================================== */
+   ======================================== 
+   
+   Grid-based layout for the comprehensive menu page featuring:
+   - Two-column layout: Article + Menu containers
+   - Responsive menu cards with Canadian flag branding
+   - Table-based menu items with alternating row colors
+   - Mobile-first responsive design with stacked layout
+   - Canadian flag icons for authentic branding
+*/
 
+/* Menu Grid Container: Flexbox layout for menu sections */
 .menu-container{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin: 0px;
-  padding: 0px;
+  display: flex;                     /* Flexbox for flexible layout */
+  flex-direction: row;               /* Horizontal arrangement */
+  align-items: center;               /* Vertical centering */
+  justify-content: center;           /* Horizontal centering */
+  flex-wrap: wrap;                   /* Allow wrapping to new lines */
+  gap: 20px;                         /* Consistent spacing between cards */
+  margin: 0px;                       /* Remove default margins */
+  padding: 0px;                      /* Remove default padding */
 }
 
+/* Menu Card Container: Individual menu section styling */
 .menu-container article{
-  width: 600px;
-  min-height: 300px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  background-color: var(--logo-text-color);
-  color: hsl(255, 85%, 23%);
-  font-size: 1.25rem;
-  flex-grow: 1;
+  width: 600px;                      /* Fixed width for consistent layout */
+  min-height: 300px;                 /* Minimum height for content */
+  border-radius: 10px;               /* Rounded corners for modern look */
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); /* Subtle drop shadow */
+  padding: 10px;                     /* Internal spacing */
+  background-color: var(--menu-bg-color); /* Warm orange-brown background */
+  color: hsl(255, 85%, 23%);         /* Deep purple text for contrast */
+  font-size: 1.25rem;                /* Readable font size */
+  flex-grow: 1;                      /* Allow cards to grow and fill space */
 }
 
+/* Menu Section Headings: Styling for menu category titles */
 .menu-container article h2{
-  color: var(--accent-dark-blue);
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center;
-  margin: 0px;
-  padding: 10px;
+  color: var(--accent-light-blue);    /* Light blue for better contrast */
+  font-size: 2rem;                    /* Large, prominent headings */
+  font-weight: bold;                  /* Bold weight for emphasis */
+  text-align: center;                 /* Center-aligned text */
+  margin: 0px;                        /* Remove default margins */
+  padding: 10px;                      /* Internal spacing */
 }
 
+/* Menu Table: Styling for menu item tables */
 .menu-container table{
-  width: 100%;
-  border-collapse: collapse;
-  margin: 0 auto;
+  width: 100%;                       /* Full width of container */
+  border-collapse: collapse;          /* Remove table cell spacing */
+  margin: 0 auto;                    /* Center table horizontally */
+  /* Note: border-radius doesn't work on tables - use wrapper div instead */
 }
 
+/* Table Cell Styling: Individual menu item cells */
 .menu-container table td{
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #e0e0e0;
+  padding: 10px;                      /* Internal spacing for readability */
+  text-align: left;                   /* Left-aligned text for scanning */
+  border-bottom: 1px solid #e0e0e0;   /* Subtle border between rows */
 }
 
+/* Table Header Styling: Column headers for menu tables */
 .menu-container table th{
-  background-color: black;
-  padding: 10px;
-  text-align: left;
-  color: white;
+  background-color: black;             /* Dark background for headers */
+  padding: 10px;                      /* Consistent padding with cells */
+  text-align: left;                   /* Left-aligned for consistency */
+  color: white;                        /* White text for contrast */
 }
 
+/* Table Wrapper: Container for rounded corners on tables */
+.menu-container .table-wrapper {
+  border-radius: 20px;               /* Rounded corners for modern look */
+  overflow: hidden;                   /* Clip content to rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+}
+
+/* Table Row Styling: Alternating colors for readability */
 .menu-container tr:nth-child(even){
-  background-color: red;
-  color: white;
+  background-color: var(--canadian-flag-red);              /* Red background for even rows */
+  color: var(--canadian-flag-white);                       /* White text for contrast */
 }
 
 .menu-container table tr:nth-child(odd){
-  background-color: white;
-  color: black;
+  background-color: var(--canadian-flag-white);            /* White background for odd rows */
+  color: black;                     /* Black text for contrast */
 }
 
+/* Main Menu Page Layout: Two-column grid structure */
 .menu-page-main{
-  display: grid;
-  grid-template-columns: 550px 1fr;
-  grid-template-rows: auto 1fr;
-  gap: 10px;
-  margin: 10px auto;
-  width: 95vw;
+  display: grid;                      /* CSS Grid for layout control */
+  grid-template-columns: 550px 1fr;   /* Fixed left column + flexible right */
+  grid-template-rows: auto 1fr;       /* Auto header + flexible content */
+  gap: 10px;                          /* Spacing between grid areas */
+  margin: 10px auto;                  /* Center horizontally with top margin */
+  width: 95vw;                        /* Responsive width (95% viewport) */
 }
 
+/* Main Menu Page Title: Large heading spanning full width */
 .menu-page-main h1{
-  grid-column: 1 / 3;
-  grid-row: 1 / 2;
-  text-align: center;
-  font-size: 4rem;
-  font-weight: bold;
-  color: var(--accent-dark-blue);
-  margin: 0px;
-  padding: 10px;
+  grid-column: 1 / 3;                 /* Span both columns */
+  grid-row: 1 / 2;                    /* Top row position */
+  text-align: center;                  /* Center-aligned title */
+  font-size: 4rem;                    /* Large, prominent heading */
+  font-weight: bold;                   /* Bold weight for impact */
+  color: var(--accent-dark-blue);      /* Deep blue for brand consistency */
+  margin: 0px;                         /* Remove default margins */
+  padding: 10px;                       /* Internal spacing */
 }
 
+/* Menu Page Article: Left column content area */
 .menu-page-main-article{
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
-  padding: 40px;
-  font-size: 1.25rem;
-  color: var(--accent-dark-blue);
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  width: 90%;
+  grid-column: 1 / 2;                 /* Left column position */
+  grid-row: 2 / 3;                    /* Content row position */
+  padding: 40px;                      /* Generous internal spacing */
+  font-size: 1.25rem;                 /* Readable body text size */
+  color: var(--accent-dark-blue);      /* Deep blue for consistency */
+  background-color: white;             /* Clean white background */
+  border-radius: 10px;                 /* Rounded corners for modern look */
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); /* Subtle drop shadow */
+  margin: 10px;                        /* External spacing */
+  width: 90%;                          /* Responsive width within column */
 }
 
+/* Menu Container Grid Position: Right column menu area */
 .menu-page-main .menu-container{
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  margin: 0px;
-  padding: 0px;
+  grid-column: 2 / 3;                 /* Right column position */
+  grid-row: 2 / 3;                    /* Content row position */
+  margin: 0px;                         /* Remove default margins */
+  padding: 0px;                        /* Remove default padding */
 }
 
+/* Large Tablet Breakpoint: Stack menu layout for medium screens */
 @media (max-width: 1300px){
+  /* Menu Container: Switch to vertical stacking */
   .menu-container{
-    flex-direction: column;
+    flex-direction: column;           /* Stack cards vertically */
   }
 
+  /* Menu Cards: Full width for better mobile experience */
   .menu-container article{
-    width: 100%;
+    width: 100%;                      /* Use full available width */
   }
 
+  /* Main Layout: Switch to single-column grid */
   .menu-page-main{
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;       /* Single column layout */
+    grid-template-rows: auto 1fr auto; /* Header, content, article */
   }
 
+  /* Article: Move to bottom of layout */
   .menu-page-main-article{
-    grid-column: 1 / 2;
-    grid-row: 3 / 4;
+    grid-column: 1 / 2;               /* Full width */
+    grid-row: 3 / 4;                  /* Bottom position */
   }
 
+  /* Menu Container: Main content area */
   .menu-page-main .menu-container{
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
+    grid-column: 1 / 2;               /* Full width */
+    grid-row: 2 / 3;                  /* Middle position */
   }
 }
 
+/* Small Mobile Breakpoint: Typography adjustments for small screens */
 @media (max-width: 600px){
+  /* Root Typography: Reduce base font size for mobile */
   :root{
-    font-size: 10pt;
+    font-size: 10pt;                  /* Smaller base font for mobile */
   }
 
+  /* Menu Page: Further reduce font size for content */
   .menu-page-main{
-    font-size: 0.8rem;
+    font-size: 0.8rem;                /* Compact text for small screens */
   }
 }
 
+/* ========================================
+   CANADIAN FLAG ICON STYLES
+   ======================================== */
+
+/* Canadian flag icon styling for menu headers */
 .canadian-flag-icon{
-  width: 24px;
-  height: 16px;
-  vertical-align: middle;
-  margin-left: 10px;
-  margin-right: 10px;
-  display: inline-block;  
+  width: 24px;                       /* Standard flag width */
+  height: 16px;                      /* Standard flag height (3:2 ratio) */
+  vertical-align: middle;            /* Align with text baseline */
+  margin-left: 10px;                 /* Left spacing from text */
+  margin-right: 10px;                /* Right spacing from text */
+  display: inline-block;             /* Inline block for proper spacing */
 }
