@@ -19,7 +19,17 @@
       </nav>
     </header>
     <main>
-      <img src="./img/Cover-image.jpg" alt="" class="cover-image" />
+      <picture class="cover-image-container">
+        <source
+          srcset="./img/Cover-image-1400p.jpg"
+          media="(max-width: 1400px)"
+        />
+        <source
+          srcset="./img/Cover-image-1200p.jpg"
+          media="(max-width: 1200px)"
+        />
+        <img src="./img/Cover-image.jpg" alt="" class="cover-image-img" />
+      </picture>
       <h1 class="home-page-heading">COFFEE HEAVEN</h1>
       <div class="home-page-content-layout">
         <figure class="canadian-flag">
