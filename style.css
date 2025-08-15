@@ -416,3 +416,12 @@ footer {
     font-size: 0.8rem;
   }
 }
+
+.canadian-flag-icon{
+  width: 24px;
+  height: 16px;
+  vertical-align: middle;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: inline-block;  
+}
