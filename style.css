@@ -298,7 +298,8 @@ footer {
 
 /* Menu Card Container: Individual menu section styling */
 .menu-page-container article{
-  width: 100%;                       /* Full width of column for true equality */
+  flex: 1;                           /* Grow to fill available space */
+  min-width: 300px;                  /* Minimum width before wrapping */
   min-height: 300px;                 /* Minimum height for content */
   border-radius: 15px;               /* Increased rounded corners for modern look */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Enhanced drop shadow */
@@ -306,20 +307,22 @@ footer {
   background-color: var(--menu-bg-color); /* Warm orange-brown background */
   color: hsl(255, 85%, 23%);         /* Deep purple text for contrast */
   font-size: 1.25rem;                /* Readable font size */
-  flex-grow: 1;                      /* Allow cards to grow and fill space */
   transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover transitions */
-  max-width: 500px;
+  box-sizing: border-box;             /* Include padding in width calculation */
+  flex-basis: 500px;
 }
 
 .menu-page-main-article{
-  width: 1000px;
+  flex: 1 1 500px;                   /* Grow to fill space, shrink if needed, base width 500px */
+  min-width: 0;                       /* Allow shrinking below content size */
   background-color: var(--menu-bg-color); /* Warm orange-brown background */
   color: hsl(255, 85%, 23%);         /* Deep purple text for contrast */
   font-size: 1.25rem;                /* Readable font size */
   border-radius: 15px;               /* Increased rounded corners for modern look */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Enhanced drop shadow */
-  margin: 10px auto;
+  margin: 0;                          /* No margins - let container handle spacing */
   padding: 20px;                     /* Increased internal spacing */
+  box-sizing: border-box;             /* Include padding in width calculation */
 }
 
 /* Menu Card Hover Effect: Subtle interaction feedback */
@@ -380,24 +383,33 @@ footer {
   color: black;                     /* Black text for contrast */
 }
 
-/* Main Menu Page Layout: Two-column grid structure */
-.menu-page-container{
+/* Main Menu Page Layout: Flexbox column structure */
+.menu-page-main{
+  display: flex;                      /* Flexbox for layout control */
+  flex-direction: column;             /* Stack elements vertically */
+  gap: 20px;                          /* Spacing between elements */
   margin: 10px auto;                  /* Center horizontally with top margin */
   width: 95vw;                        /* Responsive width (95% viewport) */
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  max-width: 1200px;
-  padding: 10px;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  max-width: 1200px;                  /* Maximum width for large screens */
+  padding: 10px;                      /* Internal spacing */
 }
 
-/* Main Menu Page Title: Large heading spanning full width */
+/* Menu Container: Flexbox layout for menu sections */
+.menu-page-container{
+  display: flex;                      /* Flexbox for flexible layout */
+  flex-direction: row;                /* Horizontal arrangement */
+  align-items: center;                /* Vertical centering */
+  justify-content: center;            /* Horizontal centering */
+  flex-wrap: wrap;                    /* Allow wrapping to new lines */
+  gap: 20px;                          /* Consistent spacing between cards */
+  margin: 0px;                        /* Remove default margins */
+  padding: 0px;                       /* Remove default padding */
+  width: 100%;                        /* Full width to match main article */
+  box-sizing: border-box;             /* Include padding in width calculation */
+}
+
+/* Main Menu Page Title: Large heading for flexbox layout */
 .menu-page-main h1{
-  grid-column: 1 / 3;                 /* Span both columns */
-  grid-row: 1 / 2;                    /* Top row position */
   text-align: center;                  /* Center-aligned title */
   font-size: 4rem;                    /* Large, prominent heading */
   font-weight: bold;                   /* Bold weight for impact */
@@ -424,7 +436,13 @@ footer {
 
 @media (max-width: 1093px){
   .menu-page-main-article{
-    width: 500px;
+    width: 100%;                        /* Full width on smaller screens */
+    margin: 10px;                       /* Consistent margins */
+  }
+  
+  .menu-page-container article{
+    width: 100%;                        /* Full width for menu cards */
+    max-width: none;                    /* Remove max-width constraint */
   }
 }
 
