@@ -35,6 +35,7 @@
   --accent-light-blue: hsl(240, 60%, 95%); /* Light blue for menu headings */
   --menu-bg-color: hsl(26, 63%, 40%); /* Warm orange-brown for menu cards */
   --canadian-flag-red: hsl(0, 80%, 50%); /* Canadian flag red for table rows */
+  --canadian-flag-red-soft: #d63a2a;      /* Softer red for better visual harmony */
   --canadian-flag-white: hsl(0, 0%, 100%); /* Pure white for contrast */
   
   /* Typography Scale */
@@ -308,15 +309,22 @@ footer {
 
 /* Menu Card Container: Individual menu section styling */
 .menu-container article{
-  width: 600px;                      /* Fixed width for consistent layout */
+  width: 100%;                       /* Full width of column for true equality */
   min-height: 300px;                 /* Minimum height for content */
-  border-radius: 10px;               /* Rounded corners for modern look */
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); /* Subtle drop shadow */
-  padding: 10px;                     /* Internal spacing */
+  border-radius: 15px;               /* Increased rounded corners for modern look */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Enhanced drop shadow */
+  padding: 20px;                     /* Increased internal spacing */
   background-color: var(--menu-bg-color); /* Warm orange-brown background */
   color: hsl(255, 85%, 23%);         /* Deep purple text for contrast */
   font-size: 1.25rem;                /* Readable font size */
   flex-grow: 1;                      /* Allow cards to grow and fill space */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover transitions */
+}
+
+/* Menu Card Hover Effect: Subtle interaction feedback */
+.menu-container article:hover {
+  transform: translateY(-2px);        /* Slight lift effect */
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
 /* Menu Section Headings: Styling for menu category titles */
@@ -357,11 +365,12 @@ footer {
   border-radius: 20px;               /* Rounded corners for modern look */
   overflow: hidden;                   /* Clip content to rounded corners */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+  margin: 15px 0;                     /* Vertical spacing around tables */
 }
 
 /* Table Row Styling: Alternating colors for readability */
 .menu-container tr:nth-child(even){
-  background-color: var(--canadian-flag-red);              /* Red background for even rows */
+  background-color: var(--canadian-flag-red-soft);         /* Softer red background for even rows */
   color: var(--canadian-flag-white);                       /* White text for contrast */
 }
 
@@ -373,9 +382,9 @@ footer {
 /* Main Menu Page Layout: Two-column grid structure */
 .menu-page-main{
   display: grid;                      /* CSS Grid for layout control */
-  grid-template-columns: 550px 1fr;   /* Fixed left column + flexible right */
+  grid-template-columns: 1fr 1fr;     /* Equal width columns for balance */
   grid-template-rows: auto 1fr;       /* Auto header + flexible content */
-  gap: 10px;                          /* Spacing between grid areas */
+  gap: 20px;                          /* Increased spacing between columns */
   margin: 10px auto;                  /* Center horizontally with top margin */
   width: 95vw;                        /* Responsive width (95% viewport) */
 }
@@ -387,7 +396,7 @@ footer {
   text-align: center;                  /* Center-aligned title */
   font-size: 4rem;                    /* Large, prominent heading */
   font-weight: bold;                   /* Bold weight for impact */
-  color: var(--accent-dark-blue);      /* Deep blue for brand consistency */
+  color: #2d2018;                      /* Warm coffee brown for better harmony */
   margin: 0px;                         /* Remove default margins */
   padding: 10px;                       /* Internal spacing */
 }
@@ -398,12 +407,28 @@ footer {
   grid-row: 2 / 3;                    /* Content row position */
   padding: 40px;                      /* Generous internal spacing */
   font-size: 1.25rem;                 /* Readable body text size */
-  color: var(--accent-dark-blue);      /* Deep blue for consistency */
-  background-color: white;             /* Clean white background */
+  color: var(--canadian-flag-white);   /* White text for contrast on brown */
+  background-color: var(--menu-bg-color); /* Warm orange-brown background */
   border-radius: 10px;                 /* Rounded corners for modern look */
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); /* Subtle drop shadow */
   margin: 10px;                        /* External spacing */
-  width: 90%;                          /* Responsive width within column */
+  width: 100%;                         /* Full column width for true equality */
+}
+
+/* Menu Page Article Heading: Enhanced contrast for the Coffee heading */
+.menu-page-main-article h2 {
+  color: var(--canadian-flag-white);   /* White text for maximum contrast */
+  font-size: 2.5rem;                   /* Larger size for better hierarchy */
+  font-weight: bold;                    /* Bold weight for emphasis */
+  margin-bottom: 20px;                 /* Space below heading */
+  text-align: center;                  /* Center alignment */
+}
+
+/* Menu Page Article Paragraph: Enhanced contrast for better readability */
+.menu-page-main-article p {
+  color: var(--canadian-flag-white);   /* White text for maximum contrast */
+  line-height: 1.6;                    /* Improved line spacing for readability */
+  font-weight: 500;                    /* Slightly bolder for better visibility */
 }
 
 /* Menu Container Grid Position: Right column menu area */
@@ -419,23 +444,27 @@ footer {
   /* Menu Container: Switch to vertical stacking */
   .menu-container{
     flex-direction: column;           /* Stack cards vertically */
+    gap: 25px;                        /* Increased spacing between cards */
   }
 
   /* Menu Cards: Full width for better mobile experience */
   .menu-container article{
     width: 100%;                      /* Use full available width */
+    margin: 0 15px;                   /* Add horizontal margins */
   }
 
   /* Main Layout: Switch to single-column grid */
   .menu-page-main{
     grid-template-columns: 1fr;       /* Single column layout */
     grid-template-rows: auto 1fr auto; /* Header, content, article */
+    gap: 20px;                        /* Increased gap for better spacing */
   }
 
   /* Article: Move to bottom of layout */
   .menu-page-main-article{
     grid-column: 1 / 2;               /* Full width */
     grid-row: 3 / 4;                  /* Bottom position */
+    margin: 0 15px;                   /* Add horizontal margins */
   }
 
   /* Menu Container: Main content area */
@@ -467,7 +496,6 @@ footer {
   width: 24px;                       /* Standard flag width */
   height: 16px;                      /* Standard flag height (3:2 ratio) */
   vertical-align: middle;            /* Align with text baseline */
-  margin-left: 10px;                 /* Left spacing from text */
-  margin-right: 10px;                /* Right spacing from text */
+  margin-right: 12px;                /* Right spacing between flag and text */
   display: inline-block;             /* Inline block for proper spacing */
 }
