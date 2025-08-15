@@ -12,11 +12,21 @@ body,nav,li,ul {
   padding: 0px;
 }
 
+.cover-image{
+  width: 100%;
+  object-fit: cover;
+}
+
+main{
+  height: 80vh;
+}
+
 body {
   background-color: var(--body-bg-color);
+  height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  height: 100vh;
+  grid-template-columns: 1fr;
 }
 
 .nav-items{
@@ -64,9 +74,10 @@ footer {
 .nav-logo {
   height: 100px;
   max-width: 600px;
+  object-fit: cover;
 }
 
-@media (max-width:800px){
+@media (max-width:1000px){
   header{
     flex-direction: column;
     padding: 0px;
@@ -82,6 +93,10 @@ footer {
   .nav-items li a{
     width:100%;
     text-align: center;
+  }
+
+  main{
+    height: 180vh;
   }
 
   body {
