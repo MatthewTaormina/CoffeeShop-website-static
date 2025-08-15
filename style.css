@@ -1,13 +1,19 @@
 :root {
   --logo-bg-color:#4A704B;
   --nav-hover-bg-color:#1EEB16;
+  --body-bg-color: hsl(118, 50%, 90%);
   --font-color: black;
   font-size: 14pt;
+  font-family: sans-serif;
 }
 
 body,nav,li,ul {
   margin: 0px;
   padding: 0px;
+}
+
+body {
+  background-color: var(--body-bg-color);
 }
 
 .nav-items{
@@ -38,11 +44,17 @@ header {
   padding: 0.5em;
   text-decoration: none;
   color: var(--font-color);
-  font-size: 1.75rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #EB7115;
+}
+
+.nav-items > li:hover a{
+  color: var(--logo-bg-color)
 }
 
 .nav-logo {
-  height: 64px;
+  height: 100px;
   max-width: 600px;
 }
 
