@@ -383,8 +383,8 @@ footer {
 /* Main Menu Page Layout: Two-column grid structure */
 .menu-page-main{
   display: grid;                      /* CSS Grid for layout control */
-  grid-template-columns: 1fr 2fr;     /* Equal width columns for balance */
-  grid-template-rows: auto 1fr;       /* Auto header + flexible content */
+  grid-template-columns: 1fr;    /* Equal width columns for balance */
+  grid-template-rows: auto auto 1fr;       /* Auto header + flexible content */
   gap: 20px;                          /* Increased spacing between columns */
   margin: 10px auto;                  /* Center horizontally with top margin */
   width: 95vw;                        /* Responsive width (95% viewport) */
@@ -434,8 +434,8 @@ footer {
 
 /* Menu Container Grid Position: Right column menu area */
 .menu-page-main .menu-container{
-  grid-column: 2 / 3;                 /* Right column position */
-  grid-row: 2 / 3;                    /* Content row position */
+  grid-column: 1 / 2;                 /* Right column position */
+  grid-row: 3 / 4;                    /* Content row position */
   margin: 0px;                         /* Remove default margins */
   padding: 0px;                        /* Remove default padding */
 }
@@ -471,7 +471,7 @@ footer {
   /* Menu Container: Main content area */
   .menu-page-main .menu-container{
     grid-column: 1 / 2;               /* Full width */
-    grid-row: 2 / 3;                  /* Middle position */
+    grid-row: 3 / 4;                  /* Middle position */
   }
 }
 
