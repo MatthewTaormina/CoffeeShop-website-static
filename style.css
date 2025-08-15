@@ -124,11 +124,17 @@ footer {
   font-size: 1.25rem;
 }
 
-.canadian-flag {
+.canadian-flag img{
   height: 208px; /* Example width */
   display: block;
   margin: 0 auto;
   padding: 40px 80px;
+}
+
+.canadian-flag figcaption {
+  color: #ff0000;
+  background-color: #ffffff;
+  padding: 5px;
 }
 
 .home-page-content-layout {
@@ -161,10 +167,6 @@ footer {
   }
   .home-page-content-layout {
   flex-direction: column;
-}
-
-.canadian-flag{
-  max-width: none;
 }
 }
 
