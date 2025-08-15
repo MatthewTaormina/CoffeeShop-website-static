@@ -48,7 +48,8 @@ header {
 
 footer {
   background-color: var(--logo-bg-color);
-  min-height: 40px;
+  padding: 5px 50px;
+  color: white;
 }
 
 .nav-items > li {
