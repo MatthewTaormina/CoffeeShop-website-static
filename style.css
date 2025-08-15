@@ -124,11 +124,27 @@ footer {
   font-size: 1.25rem;
 }
 
-.canadian-flag img{
-  height: 208px; /* Example width */
+.canadian-flag img {
+  height: 208px;
   display: block;
   margin: 0 auto;
   padding: 20px 40px;
+  /* Use a variable for the base size */
+  --base-height: 208px;
+  height: var(--base-height);
+  
+  /* Add position: relative to establish a stacking context for z-index */
+  position: relative;
+  
+  /* Add a transition for smooth animation */
+  transition: transform 0.3s ease-in-out;
+}
+
+.canadian-flag img:hover {
+  /* Use transform: scale() to expand the image visually */
+  transform: scale(1.1);
+  /* Use z-index to bring the expanded image to the front */
+  z-index: 10;
 }
 
 .canadian-flag figcaption {
