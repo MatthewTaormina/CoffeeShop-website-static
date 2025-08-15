@@ -5,9 +5,10 @@
   A responsive multi-page coffee shop website featuring:
   - CSS custom properties for consistent theming
   - Mobile-first responsive design with progressive enhancement
-  - Grid-based layout with flexbox components
+  - Flexbox-based layout with responsive components
   - Backdrop filter effects and hover animations
   - Comprehensive menu page with Canadian-themed offerings
+  - About and Visit Us pages with consistent styling
   
   Architecture:
   1. Design System (Custom Properties & Base Styles)
@@ -16,7 +17,9 @@
   4. Hero Section (Cover Image + Overlay Title)
   5. Content Layout (Two-column Feature + Article)
   6. Responsive Breakpoints (Mobile, Tablet, Desktop)
-  7. Menu Page Styles (Grid layout with menu containers)
+  7. Menu Page Styles (Flexbox layout with responsive cards)
+  8. About & Visit Us Page Styles
+  9. Enhanced Responsive Design & Accessibility
 */
 
 /* ========================================
@@ -286,15 +289,16 @@ footer {
 
 /* ========================================
    7. MENU PAGE STYLES
-   ======================================== 
-   
-   Grid-based layout for the comprehensive menu page featuring:
-   - Two-column layout: Article + Menu containers
-   - Responsive menu cards with Canadian flag branding
-   - Table-based menu items with alternating row colors
-   - Mobile-first responsive design with stacked layout
-   - Canadian flag icons for authentic branding
-*/
+    ======================================== 
+    
+    Flexbox-based layout for the comprehensive menu page featuring:
+    - Single-column vertical layout with proper element ordering
+    - Responsive menu cards with flex-basis sizing and wrapping
+    - Table-based menu items with alternating row colors
+    - Mobile-first responsive design with full-width elements
+    - Canadian flag icons for authentic branding
+    - Equal-width main article and menu container alignment
+ */
 
 /* Menu Card Container: Individual menu section styling */
 .menu-page-container article{
@@ -312,6 +316,7 @@ footer {
   flex-basis: 500px;
 }
 
+/* Menu Page Main Article: Intro content section for menu page */
 .menu-page-main-article{
   min-width: 0;                       /* Allow shrinking below content size */
   background-color: var(--menu-bg-color); /* Warm orange-brown background */
@@ -322,7 +327,7 @@ footer {
   margin: 0;                          /* No margins - let container handle spacing */
   padding: 20px;                     /* Increased internal spacing */
   box-sizing: border-box;             /* Include padding in width calculation */
-  height: fit-content;
+  height: fit-content;                /* Size to content height only */
 }
 
 /* Menu Card Hover Effect: Subtle interaction feedback */
@@ -394,13 +399,13 @@ footer {
   padding: 10px;                      /* Internal spacing */
 }
 
-/* Menu Container: Flexbox layout for menu sections */
+/* Menu Container: Flexbox container for menu card layout */
 .menu-page-container{
-  display: flex;                      /* Flexbox for flexible layout */
-  flex-direction: row;                /* Horizontal arrangement */
-  align-items: center;                /* Vertical centering */
-  justify-content: center;            /* Horizontal centering */
-  flex-wrap: wrap;                    /* Allow wrapping to new lines */
+  display: flex;                      /* Flexbox container for menu cards */
+  flex-direction: row;                /* Horizontal arrangement of cards */
+  align-items: center;                /* Vertical centering of cards */
+  justify-content: center;            /* Horizontal centering of cards */
+  flex-wrap: wrap;                    /* Allow cards to wrap to new lines */
   gap: 20px;                          /* Consistent spacing between cards */
   margin: 0px;                        /* Remove default margins */
   padding: 0px;                       /* Remove default padding */
