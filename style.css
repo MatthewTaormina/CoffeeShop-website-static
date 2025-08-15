@@ -73,7 +73,7 @@ footer {
   color: var(--font-color);
   font-size: 2rem;
   font-weight: bold;
-  color: hsl(26, 64%, 70%);
+  color: #e3ac82;
 }
 
 .nav-items > li:hover a{
