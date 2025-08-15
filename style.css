@@ -296,20 +296,8 @@ footer {
    - Canadian flag icons for authentic branding
 */
 
-/* Menu Grid Container: Flexbox layout for menu sections */
-.menu-container{
-  display: flex;                     /* Flexbox for flexible layout */
-  flex-direction: row;               /* Horizontal arrangement */
-  align-items: center;               /* Vertical centering */
-  justify-content: center;           /* Horizontal centering */
-  flex-wrap: wrap;                   /* Allow wrapping to new lines */
-  gap: 20px;                         /* Consistent spacing between cards */
-  margin: 0px;                       /* Remove default margins */
-  padding: 0px;                      /* Remove default padding */
-}
-
 /* Menu Card Container: Individual menu section styling */
-.menu-container article{
+.menu-page-container article{
   width: 100%;                       /* Full width of column for true equality */
   min-height: 300px;                 /* Minimum height for content */
   border-radius: 15px;               /* Increased rounded corners for modern look */
@@ -320,16 +308,28 @@ footer {
   font-size: 1.25rem;                /* Readable font size */
   flex-grow: 1;                      /* Allow cards to grow and fill space */
   transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover transitions */
+  max-width: 500px;
+}
+
+.menu-page-main-article{
+  width: 1000px;
+  background-color: var(--menu-bg-color); /* Warm orange-brown background */
+  color: hsl(255, 85%, 23%);         /* Deep purple text for contrast */
+  font-size: 1.25rem;                /* Readable font size */
+  border-radius: 15px;               /* Increased rounded corners for modern look */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Enhanced drop shadow */
+  margin: 10px auto;
+  padding: 20px;                     /* Increased internal spacing */
 }
 
 /* Menu Card Hover Effect: Subtle interaction feedback */
-.menu-container article:hover {
+.menu-page-container article:hover {
   transform: translateY(-2px);        /* Slight lift effect */
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
 /* Menu Section Headings: Styling for menu category titles */
-.menu-container article h2{
+.menu-page-container article h2{
   color: var(--accent-light-blue);    /* Light blue for better contrast */
   font-size: 2rem;                    /* Large, prominent headings */
   font-weight: bold;                  /* Bold weight for emphasis */
@@ -339,7 +339,7 @@ footer {
 }
 
 /* Menu Table: Styling for menu item tables */
-.menu-container table{
+.menu-page-container table{
   width: 100%;                       /* Full width of container */
   border-collapse: collapse;          /* Remove table cell spacing */
   margin: 0 auto;                    /* Center table horizontally */
@@ -347,14 +347,14 @@ footer {
 }
 
 /* Table Cell Styling: Individual menu item cells */
-.menu-container table td{
+.menu-page-container table td{
   padding: 10px;                      /* Internal spacing for readability */
   text-align: left;                   /* Left-aligned text for scanning */
   border-bottom: 1px solid #e0e0e0;   /* Subtle border between rows */
 }
 
 /* Table Header Styling: Column headers for menu tables */
-.menu-container table th{
+.menu-page-container table th{
   background-color: black;             /* Dark background for headers */
   padding: 10px;                      /* Consistent padding with cells */
   text-align: left;                   /* Left-aligned for consistency */
@@ -362,7 +362,7 @@ footer {
 }
 
 /* Table Wrapper: Container for rounded corners on tables */
-.menu-container .table-wrapper {
+.menu-page-container .table-wrapper {
   border-radius: 20px;               /* Rounded corners for modern look */
   overflow: hidden;                   /* Clip content to rounded corners */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
@@ -370,24 +370,28 @@ footer {
 }
 
 /* Table Row Styling: Alternating colors for readability */
-.menu-container tr:nth-child(even){
+.menu-page-container tr:nth-child(even){
   background-color: var(--canadian-flag-red-soft);         /* Softer red background for even rows */
   color: var(--canadian-flag-white);                       /* White text for contrast */
 }
 
-.menu-container table tr:nth-child(odd){
+.menu-page-container table tr:nth-child(odd){
   background-color: var(--canadian-flag-white);            /* White background for odd rows */
   color: black;                     /* Black text for contrast */
 }
 
 /* Main Menu Page Layout: Two-column grid structure */
-.menu-page-main{
-  display: grid;                      /* CSS Grid for layout control */
-  grid-template-columns: 1fr;    /* Equal width columns for balance */
-  grid-template-rows: auto auto 1fr;       /* Auto header + flexible content */
-  gap: 20px;                          /* Increased spacing between columns */
+.menu-page-container{
   margin: 10px auto;                  /* Center horizontally with top margin */
   width: 95vw;                        /* Responsive width (95% viewport) */
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  max-width: 1200px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* Main Menu Page Title: Large heading spanning full width */
@@ -400,20 +404,6 @@ footer {
   color: #2d2018;                      /* Warm coffee brown for better harmony */
   margin: 0px;                         /* Remove default margins */
   padding: 10px;                       /* Internal spacing */
-}
-
-/* Menu Page Article: Left column content area */
-.menu-page-main-article{
-  grid-column: 1 / 2;                 /* Left column position */
-  grid-row: 2 / 3;                    /* Content row position */
-  padding: 40px;                      /* Generous internal spacing */
-  font-size: 1.25rem;                 /* Readable body text size */
-  color: var(--canadian-flag-white);   /* White text for contrast on brown */
-  background-color: var(--menu-bg-color); /* Warm orange-brown background */
-  border-radius: 10px;                 /* Rounded corners for modern look */
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); /* Subtle drop shadow */
-  margin: 10px;                        /* External spacing */
-  width: 100%;                         /* Full column width for true equality */
 }
 
 /* Menu Page Article Heading: Enhanced contrast for the Coffee heading */
@@ -432,46 +422,9 @@ footer {
   font-weight: 500;                    /* Slightly bolder for better visibility */
 }
 
-/* Menu Container Grid Position: Right column menu area */
-.menu-page-main .menu-container{
-  grid-column: 1 / 2;                 /* Right column position */
-  grid-row: 3 / 4;                    /* Content row position */
-  margin: 0px;                         /* Remove default margins */
-  padding: 0px;                        /* Remove default padding */
-}
-
-/* Large Tablet Breakpoint: Stack menu layout for medium screens */
-@media (max-width: 1300px){
-  /* Menu Container: Switch to vertical stacking */
-  .menu-container{
-    flex-direction: column;           /* Stack cards vertically */
-    gap: 25px;                        /* Increased spacing between cards */
-  }
-
-  /* Menu Cards: Full width for better mobile experience */
-  .menu-container article{
-    width: 100%;                      /* Use full available width */
-    margin: 0 15px;                   /* Add horizontal margins */
-  }
-
-  /* Main Layout: Switch to single-column grid */
-  .menu-page-main{
-    grid-template-columns: 1fr;       /* Single column layout */
-    grid-template-rows: auto 1fr auto; /* Header, content, article */
-    gap: 20px;                        /* Increased gap for better spacing */
-  }
-
-  /* Article: Move to bottom of layout */
+@media (max-width: 1093px){
   .menu-page-main-article{
-    grid-column: 1 / 2;               /* Full width */
-    grid-row: 3 / 4;                  /* Bottom position */
-    margin: 0 15px;                   /* Add horizontal margins */
-  }
-
-  /* Menu Container: Main content area */
-  .menu-page-main .menu-container{
-    grid-column: 1 / 2;               /* Full width */
-    grid-row: 3 / 4;                  /* Middle position */
+    width: 500px;
   }
 }
 
