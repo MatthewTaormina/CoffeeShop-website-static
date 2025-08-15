@@ -73,7 +73,7 @@ footer {
   color: var(--font-color);
   font-size: 2rem;
   font-weight: bold;
-  color: #EB7115;
+  color: hsl(26, 64%, 70%);
 }
 
 .nav-items > li:hover a{
@@ -86,21 +86,37 @@ footer {
   object-fit: cover;
 }
 
-.home-page-heading{
+.home-page-heading {
   position: relative;
   text-align: center;
-  padding: 20px 0px;
-  margin: 0px auto;
-  width: 400px;
-  top:-55px;
-  background-color: aliceblue;
-  border-style: solid;
-  border-width: 6px;
+  padding: 30px 40px; /* slightly less top/bottom padding for balance */
+  margin: 0 auto;
+  width: fit-content; /* allows the box to size to text */
+  top: -88px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50px;
+  backdrop-filter: blur(4px); /* softens background through transparency */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* subtle shadow for depth */
 }
+
+.home-page-heading h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  color: #2d2018; /* deep coffee brown */
+}
+
+.home-page-heading .tagline {
+  font-size: 1rem;
+  font-style: italic;
+  color: #4b3832;
+  margin-top: 5px;
+}
+
 
 .home-page-content{
   position: relative;
-  top: -55px;
+  top: -88px;
   margin: 0px auto;
   max-width: 850px;
   padding: 10px;
