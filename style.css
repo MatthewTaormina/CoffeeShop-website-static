@@ -14,6 +14,9 @@ body,nav,li,ul {
 
 body {
   background-color: var(--body-bg-color);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
 }
 
 .nav-items{
@@ -27,6 +30,11 @@ header {
   background-color: var(--logo-bg-color);
   align-items: center;
   justify-content: center;
+}
+
+footer {
+  background-color: var(--logo-bg-color);
+  min-height: 100px;
 }
 
 .nav-items > li {
@@ -74,5 +82,9 @@ header {
   .nav-items li a{
     width:100%;
     text-align: center;
+  }
+
+  body {
+    height: 200vh;
   }
 }
