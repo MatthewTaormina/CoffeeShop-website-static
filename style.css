@@ -313,7 +313,6 @@ footer {
 }
 
 .menu-page-main-article{
-  flex: 1 1 500px;                   /* Grow to fill space, shrink if needed, base width 500px */
   min-width: 0;                       /* Allow shrinking below content size */
   background-color: var(--menu-bg-color); /* Warm orange-brown background */
   color: hsl(255, 85%, 23%);         /* Deep purple text for contrast */
@@ -323,6 +322,7 @@ footer {
   margin: 0;                          /* No margins - let container handle spacing */
   padding: 20px;                     /* Increased internal spacing */
   box-sizing: border-box;             /* Include padding in width calculation */
+  height: fit-content;
 }
 
 /* Menu Card Hover Effect: Subtle interaction feedback */
